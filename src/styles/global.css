@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base Styles ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Outfit", system-ui, sans-serif;
+  background-color: #08091a;
+  color: #e8edf5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+/* Allow text selection in inputs and text areas */
+input,
+textarea,
+[contenteditable] {
+  user-select: text;
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2d4a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #243352;
+}
+
+/* ── Glassmorphism Cards ── */
+.glass-card {
+  background: rgba(14, 22, 41, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.25rem;
+}
+
+.glass-card-light {
+  background: rgba(20, 30, 53, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* ── Gradient Text ── */
+.gradient-text-green {
+  background: linear-gradient(135deg, #10d9a0, #3d7fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #ffb84d, #ff6b3d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Shimmer Loading Animation ── */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(30, 45, 74, 0.4) 0%,
+    rgba(36, 51, 82, 0.8) 50%,
+    rgba(30, 45, 74, 0.4) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ── Glow Effects ── */
+.glow-green {
+  box-shadow: 0 0 20px rgba(16, 217, 160, 0.25);
+}
+.glow-blue {
+  box-shadow: 0 0 20px rgba(61, 127, 255, 0.25);
+}
+.glow-red {
+  box-shadow: 0 0 20px rgba(255, 77, 107, 0.25);
+}
+
+/* ── Chart Tooltip ── */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+.custom-tooltip {
+  background: #141e35;
+  border: 1px solid #1e2d4a;
+  border-radius: 0.75rem;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #e8edf5;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Progress Bar ── */
+.progress-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: #1e2d4a;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Drag Handle ── */
+.drag-handle {
+  cursor: grab;
+}
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+/* ── Number Ticker Animation ── */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.number-ticker {
+  animation: countUp 0.6s ease-out;
+}
+
+/* ── Milestone Celebration ── */
+@keyframes confettiBurst {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5) rotate(180deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.confetti-particle {
+  animation: confettiBurst 1s ease-out forwards;
+}
+
+/* ── Transition Defaults ── */
+.transition-smooth {
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Interactive Hover States ── */
+.hover-card {
+  transition:
+    transform 200ms,
+    box-shadow 200ms;
+}
+.hover-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Status Dot ── */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* ── Recharts Custom ── */
+.recharts-cartesian-axis-tick-value {
+  fill: #4a5a7a !important;
+  font-family: "Outfit", sans-serif !important;
+  font-size: 11px !important;
+}
+
+.recharts-legend-item-text {
+  color: #8b9dc3 !important;
+  font-family: "Outfit", sans-serif !important;
+}
+
+/* ── Titlebar drag region ── */
+.titlebar-drag {
+  -webkit-app-region: drag;
+}
+.titlebar-no-drag {
+  -webkit-app-region: no-drag;
+}
