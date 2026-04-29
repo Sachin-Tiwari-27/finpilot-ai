@@ -1,6 +1,7 @@
 {
   "name": "finpilot-ai",
   "version": "1.0.0",
+  "type": "module",
   "description": "AI-powered personal finance & investment intelligence app",
   "main": "out/main/index.js",
   "author": "FinPilot AI",
@@ -30,6 +31,7 @@
     "zustand": "^4.5.1"
   },
   "devDependencies": {
+    "@electron-toolkit/tsconfig": "^1.0.1",
     "@types/better-sqlite3": "^7.6.8",
     "@types/node": "^20.11.21",
     "@types/papaparse": "^5.3.14",

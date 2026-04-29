@@ -80,11 +80,18 @@ export default function App() {
   }
 
   async function handleOnboardingComplete() {
-    await window.api.settings.set("onboarding_complete", "true");
-    setOnboardingDone(true);
-    setSettings({ onboardingComplete: true });
-    // Reload data after onboarding
-    initApp();
+    try {
+      const api = window.api;
+      if (!api) throw new Error("API not available");
+
+      await api.settings.set("onboarding_complete", "true");
+      setOnboardingDone(true);
+      setSettings({ onboardingComplete: true });
+      // Reload data after onboarding
+      await initApp();
+    } catch (err) {
+      console.error("Onboarding completion error:", err);
+    }
   }
 
   if (!initialized) {
